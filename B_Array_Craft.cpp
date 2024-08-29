@@ -14,6 +14,48 @@ void solve()
 {
     int n, x, y;
     cin >> n >> x >> y;
+    x--;
+    y--;
+    vector<int> a(n, 1);
+    for (int i = 0; i < y; i++)
+    {
+        if (y & 1)
+        {
+            if (i & 1)
+                a[i] = 1;
+            else
+                a[i] = -1;
+        }
+        else
+        {
+            if (i & 1)
+                a[i] = -1;
+            else
+                a[i] = 1;
+        }
+    }
+    for (int i = x + 1; i < n; i++)
+    {
+        if ((x + 1) & 1)
+        {
+            if (i % 2 == 0)
+                a[i] = 1;
+            else
+                a[i] = -1;
+        }
+        else
+        {
+            if (i % 2 == 0)
+                a[i] = -1;
+            else
+                a[i] = 1;
+        }
+    }
+    for (auto i : a)
+    {
+        cout << i << " ";
+    }
+    cout << endl;
 }
 int main()
 {

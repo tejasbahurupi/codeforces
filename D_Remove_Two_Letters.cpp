@@ -14,25 +14,20 @@ void solve()
 {
     int n;
     cin >> n;
-    vector<int> a(n);
-    ll int cntneg = 0;
-    ll int sum = 0;
+    string s;
+    cin >> s;
+    ll int cnt = 0;
+    map<char, int> mp;
     for (int i = 0; i < n; i++)
     {
-        cin >> a[i];
-        if (a[i] < 0)
-        {
-            cntneg++;
-            a[i] = -a[i];
-        }
-        sum += a[i];
+        mp[s[i]]++;
     }
-    sort(a.begin(), a.end());
-    if (cntneg & 1)
+    for (auto i : mp)
     {
-        sum -= 2 * a[0];
+        if (i.second > 2)
+        {
+        }
     }
-    cout << sum << endl;
 }
 int main()
 {

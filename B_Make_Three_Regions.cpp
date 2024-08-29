@@ -14,25 +14,22 @@ void solve()
 {
     int n;
     cin >> n;
-    vector<int> a(n);
-    ll int cntneg = 0;
-    ll int sum = 0;
-    for (int i = 0; i < n; i++)
+    string s1, s2;
+    cin >> s1;
+    cin >> s2;
+    int cnt = 0;
+    for (int i = 0; i < n - 2; i++)
     {
-        cin >> a[i];
-        if (a[i] < 0)
+        if (s1[i] == 'x' && s1[i + 2] == 'x' && s2[i + 1] == '.' && s1[i + 1] == '.' && s2[i] == '.' && s2[i + 2] == '.')
         {
-            cntneg++;
-            a[i] = -a[i];
+            cnt++;
         }
-        sum += a[i];
+        if (s2[i] == 'x' && s2[i + 2] == 'x' && s1[i + 1] == '.' && s2[i + 1] == '.' && s1[i] == '.' && s1[i + 2] == '.')
+        {
+            cnt++;
+        }
     }
-    sort(a.begin(), a.end());
-    if (cntneg & 1)
-    {
-        sum -= 2 * a[0];
-    }
-    cout << sum << endl;
+    cout << cnt << endl;
 }
 int main()
 {

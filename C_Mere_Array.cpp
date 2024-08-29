@@ -15,24 +15,37 @@ void solve()
     int n;
     cin >> n;
     vector<int> a(n);
-    ll int cntneg = 0;
-    ll int sum = 0;
+    vector<int> b(n);
+    vector<int> c(n);
+    int min = INT_MAX;
     for (int i = 0; i < n; i++)
     {
         cin >> a[i];
-        if (a[i] < 0)
+        if (a[i] < min)
         {
-            cntneg++;
-            a[i] = -a[i];
+            min = a[i];
         }
-        sum += a[i];
+        b[i] = a[i];
     }
-    sort(a.begin(), a.end());
-    if (cntneg & 1)
+    if (n == 1)
     {
-        sum -= 2 * a[0];
+        cout << "YES" << endl;
+        return;
     }
-    cout << sum << endl;
+    sort(b.begin(), b.end());
+    int flag = 0;
+    for (int i = 0; i < n; i++)
+    {
+        if (a[i] != b[i] && a[i] % min != 0)
+        {
+            cout << "NO" << endl;
+            flag = 1;
+            break;
+        }
+    }
+
+    if (flag == 0)
+        cout << "YES" << endl;
 }
 int main()
 {
