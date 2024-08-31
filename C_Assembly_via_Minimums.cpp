@@ -14,17 +14,18 @@ void solve()
 {
     int n;
     cin >> n;
-    string s;
-    cin >> s;
-    ll int cnt = n - 1;
-    for (int i = 0; i < (n - 2); i++)
+    int m = n * (n - 1) / 2;
+    vector<ll int> b(m);
+    for (int i = 0; i < m; i++)
     {
-        if (s[i] == s[i + 2])
-        {
-            cnt--;
-        }
+        cin >> b[i];
     }
-    cout << cnt << endl;
+    sort(b.begin(), b.end());
+    for (int i = 0; i < m; i += (--n))
+    {
+        cout << b[i] << " ";
+    }
+    cout << 1000000000 << endl;
 }
 int main()
 {

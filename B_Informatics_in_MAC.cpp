@@ -12,26 +12,20 @@ using namespace std;
 
 void solve()
 {
-    int n;
+    ll int n;
     cin >> n;
-    string s;
-    cin >> s;
-    ll int cnt = n - 1;
-    for (int i = 0; i < (n - 2); i++)
+    vector<int> a(n);
+    for (int i = 0; i < n; i++)
     {
-        if (s[i] == s[i + 2])
-        {
-            cnt--;
-        }
+        cin >> a[i];
     }
-    cout << cnt << endl;
 }
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     cout.tie(NULL);
-    int t;
+    ll int t;
     cin >> t;
     while (t--)
     {
@@ -39,3 +33,4 @@ int main()
     }
     return 0;
 }
+.

@@ -14,14 +14,24 @@ void solve()
 {
     int n;
     cin >> n;
-    string s;
-    cin >> s;
-    ll int cnt = n - 1;
-    for (int i = 0; i < (n - 2); i++)
+    vector<int> a(n);
+    map<ll int, ll int> mp;
+    for (int i = 0; i < n; i++)
     {
-        if (s[i] == s[i + 2])
+        cin >> a[i];
+        a[i] -= i;
+        mp[a[i]]++;
+    }
+    // for (auto x : mp)
+    // {
+    //     cout << x.first << " " << x.second << endl;
+    // }
+    ll int cnt = 0;
+    for (auto x : mp)
+    {
+        if (x.second > 1)
         {
-            cnt--;
+            cnt += (x.second) * (x.second - 1) / 2;
         }
     }
     cout << cnt << endl;

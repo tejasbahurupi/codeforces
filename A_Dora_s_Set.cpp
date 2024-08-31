@@ -12,20 +12,30 @@ using namespace std;
 
 void solve()
 {
-    int n;
-    cin >> n;
-    string s;
-    cin >> s;
-    ll int cnt = n - 1;
-    for (int i = 0; i < (n - 2); i++)
+    int l, r;
+    cin >> l >> r;
+    int evens;
+    int odds;
+    if (l & 1 && r & 1)
     {
-        if (s[i] == s[i + 2])
-        {
-            cnt--;
-        }
+        odds = (r - l) / 2 + 1;
+        evens = odds - 1;
     }
-    cout << cnt << endl;
+    else if (l % 2 == 0 && r % 2 == 0)
+    {
+        evens = (r - l) / 2 + 1;
+        odds = evens - 1;
+    }
+    else
+    {
+        evens = (r - l) / 2 + 1;
+        odds = evens;
+    }
+    int ans = 0;
+    ans = odds / 2;
+    cout << ans << endl;
 }
+
 int main()
 {
     ios_base::sync_with_stdio(false);

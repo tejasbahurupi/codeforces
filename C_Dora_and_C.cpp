@@ -12,19 +12,8 @@ using namespace std;
 
 void solve()
 {
-    int n;
-    cin >> n;
-    string s;
-    cin >> s;
-    ll int cnt = n - 1;
-    for (int i = 0; i < (n - 2); i++)
-    {
-        if (s[i] == s[i + 2])
-        {
-            cnt--;
-        }
-    }
-    cout << cnt << endl;
+    int n, a, b;
+    cin >> n >> a >> b;
 }
 int main()
 {

@@ -19,23 +19,29 @@ void solve()
     for (int i = 0; i < n; i++)
     {
         cin >> a[i];
+        // if (a[i] != 0)
+        myset.insert(a[i]);
     }
-    vector<int>::iterator ip;
-
-    // Using std::unique
-    ip = unique(a.begin(), a.end());
-    // Now v becomes {1 3 10 1 3 7 8 * * * * *}
-    // * means undefined
-
-    // Resizing the vector so as to remove the undefined
-    // terms
-    a.resize(distance(a.begin(), ip));
-    int flag;
-    if (a.size() == 1)
+    if (n == 2)
+    {
+        if (a[0] == a[1])
+        {
+            cout << 1 << endl;
+            return;
+        }
+    }
+    int masdxscdvbf = 142353;
+    if (n == 1 || n == 2)
+    {
+        cout << n << endl;
+        return;
+    }
+    if (myset.size() == 1)
     {
         cout << 1 << endl;
         return;
     }
+    int flag;
     if (a[0] < a[1])
     {
         flag = 0;
@@ -45,8 +51,11 @@ void solve()
         flag = 1;
     }
     long long int cnt = 2;
-
-    for (int i = 0; i < (a.size() - 1); i++)
+    if (a[0] == 0)
+        cnt--;
+    if (a[n - 1] == 0)
+        cnt--;
+    for (int i = 0; i < (n - 1); i++)
     {
         if (flag == 0)
         {
